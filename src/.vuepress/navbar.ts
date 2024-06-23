@@ -31,7 +31,7 @@ export default navbar([
         icon: "user-secret",
         prefix: "Tools/",
         children: [
-          {text: "Shell Hmoe", icon: "bug", link: "Shell Hmoe"},
+          {text: "Shell Home", icon: "bug", link: "Shell Home"},
         ]
       },
     ],

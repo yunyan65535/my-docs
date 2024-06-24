@@ -369,6 +369,11 @@ echo $?
 #demo自定义
 ```
 
+## 调试
+
+* sh -n shell.sh：检查语法错误
+* sh -vx shell.sh：查看执行过程
+
 ## 特殊命令
 
 * seq m n：生成m到n正数

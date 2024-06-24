@@ -1,5 +1,6 @@
 import { defineClientConfig } from "vuepress/client";
 import { setupRunningTimeFooter } from "vuepress-theme-hope/presets/footerRunningTime.js";
+import { setupSnowFall } from "vuepress-theme-hope/presets/snowFall.js";
 
 export default defineClientConfig({
   setup() {
@@ -11,5 +12,9 @@ export default defineClientConfig({
       },
       false,
     );
+
+    setupSnowFall({
+      count: 100,
+    });
   },
 });

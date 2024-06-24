@@ -20,24 +20,27 @@ tag:
 #! /bin/bash
 
 num=0
+red="\e[1;31m"
+blue="\e[1;34m"
+reset="\e[0m"
 if [ $# -eq 0 ];then
-	echo -e "\e[1;31please enter an parameter after `basename $0` file\e[0m"
+	echo -e "${red}please enter an parameter after `basename $0` file$reset"
 	exit
 fi
 if [ ! -f $0 ];then
-	echo -e "\e[1;31mthe file type is not committed\e[0m"
+	echo -e "${red}the file type is not committed$reset"
 	exit
 fi
 for ip in `cat $1`
 do
 	ping -c1 $ip &>/etc/null
-	if [ $? ];then
-		echo -e "\e[1;34m$ip is up\e[0m"
+	if [ $? -eq 0 ];then
+		echo -e "$blue$ip is up$reset"
 		((num++))
 	fi
 done
 if [ $num -eq 0 ];then
-	echo -e "\e[1;31mall die\e[0m"
+	echo -e "${red}all die$reset"
 fi
 
 ```

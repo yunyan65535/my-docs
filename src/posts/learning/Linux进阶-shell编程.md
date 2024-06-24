@@ -185,8 +185,12 @@ echo "hello world"
 
 ### 赋值
 
-* ${temp-str}：未定义时赋予变量默认值
-* ${temp:-str}：空值也赋予默认值
+* ${temp-str}：未定义时str将替换
+* ${temp=str}：同-；但还会赋值给temp
+* ${temp+str}：与-相反
+* ${temp?str}：未定义把str输出到标准错误中，并退出脚本
+
+> 加:空值也生效
 
 ## 运算
 

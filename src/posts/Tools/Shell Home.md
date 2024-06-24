@@ -11,8 +11,9 @@ tag:
 # Shell Home
 
 |	Play play	|
+|---------------|
 
-<!-- more -->>
+<!-- more -->
 ## 判断主机存活
 
 ```shell

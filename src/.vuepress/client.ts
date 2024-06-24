@@ -3,6 +3,7 @@ import { setupRunningTimeFooter } from "vuepress-theme-hope/presets/footerRunnin
 import { setupSnowFall } from "vuepress-theme-hope/presets/snowFall.js";
 import "vuepress-theme-hope/presets/round-blogger-avatar.scss";
 import "vuepress-theme-hope/presets/hr-driving-car.scss"
+import "vuepress-theme-hope/presets/bounce-icon.scss"
 
 export default defineClientConfig({
   setup() {

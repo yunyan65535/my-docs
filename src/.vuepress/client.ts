@@ -1,6 +1,8 @@
 import { defineClientConfig } from "vuepress/client";
 import { setupRunningTimeFooter } from "vuepress-theme-hope/presets/footerRunningTime.js";
 import { setupSnowFall } from "vuepress-theme-hope/presets/snowFall.js";
+import "vuepress-theme-hope/presets/round-blogger-avatar.scss";
+import "vuepress-theme-hope/presets/hr-driving-car.scss"
 
 export default defineClientConfig({
   setup() {

@@ -29,7 +29,7 @@ export default navbar([
       {
         text: "tools",
         icon: "user-secret",
-        prefix: "Tools/",
+        prefix: "tools/",
         children: [
           {text: "Shell Home", icon: "bug", link: "Shell Home"},
         ]

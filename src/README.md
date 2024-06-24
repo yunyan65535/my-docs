@@ -20,7 +20,7 @@ projects:
   - icon: dragon
     name: Gameplay Lab
     desc: some script and tools
-    link: https://yunyin.pages.dev/posts/Tools
+    link: https://yunyin.pages.dev/posts/tools
 #   - icon: project
 #     name: 项目名称
 #     desc: 项目详细描述

@@ -45,3 +45,26 @@ fi
 
 ```
 
+## 内存使用率
+
+```shell
+#! /bin/bash
+
+total=`free |grep 'Mem' |awk '{print $2}'`
+used=`free |grep 'Mem' |awk '{print $3}'`
+rate=$((used*100/total))
+echo "当前内存使用:$rate%"
+```
+
+## 磁盘预警
+
+```shell
+#! /bin/bash
+
+mail=2104773395@qq.com
+disk_used=df |grep '/$' |awk'{print $(NF-1)}' |awk "-F%" '{print $1}'
+if [ $disk_used -ge 90 ];then
+	echo "`date +%F/%H:%M:%S`,disk_used:$disk_used" |mail -s "disk warn!" $mail
+fi
+```
+

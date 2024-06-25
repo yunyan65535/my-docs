@@ -6,7 +6,6 @@ category:
   - Docker
 tag:
   - solution
-star: true
 ---
 
 # Docker拉取国外镜像失败

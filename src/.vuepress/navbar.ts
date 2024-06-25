@@ -13,6 +13,7 @@ export default navbar([
         prefix: "solution/",
         children: [
           {text: "Docker拉取国外镜像失败", icon: "shrimp", link: "Docker拉取国外镜像失败"},
+          {text: "Linux配置邮箱", icon: "shrimp", link: "Linux配置邮箱"},
         ]
       },
 

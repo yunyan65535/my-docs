@@ -35,6 +35,15 @@ export default navbar([
           {text: "Shell Home", icon: "bug", link: "Shell Home"},
         ]
       },
+
+      {
+        text: "project",
+        icon: "project",
+        prefix: "project/",
+        children: [
+
+        ]
+      },
     ],
   },
 ]);

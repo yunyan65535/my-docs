@@ -84,9 +84,3 @@ tag:
 docker tag 旧镜像:版本 新镜像:版本  #此时会新增一个镜像，可以将原来镜像删除
 ```
 
-
-
-
-
-参考：https://blog.csdn.net/qq_42449963/article/details/128059342 
-

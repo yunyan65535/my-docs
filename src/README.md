@@ -17,6 +17,11 @@ projects:
     desc: Life-long learning
     link: https://yunyin.pages.dev/posts/learning
 
+  - icon: folder-tree
+    name: Project
+    desc: Project exercises
+    link: https://yunyin.pages.dev/posts/project
+
   - icon: dragon
     name: Gameplay Lab
     desc: some script and tools

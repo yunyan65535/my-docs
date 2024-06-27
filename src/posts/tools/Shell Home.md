@@ -14,7 +14,10 @@ tag:
 |---------------|
 
 <!-- more -->
+
 ## 判断主机存活
+
+### v1.0	文件批量扫描
 
 ```shell
 #! /bin/bash
@@ -42,8 +45,31 @@ done
 if [ $num -eq 0 ];then
 	echo -e "${red}all die$reset"
 fi
-
 ```
+
+### v2.0	24掩码网段扫描
+
+```shell
+#! /bin/bash
+
+>up_ip.txt
+read -p "please input an ip: " ip
+net=${ip%.*}
+for i in {1..254}
+do
+	{	
+		ip=$net.$i
+		ping -c1 -W1 $ip &>/etc/null
+		if [ $? -eq 0 ];then
+			echo "$ip is up" |tee -a up_ip.txt
+		fi
+	}&	#后台运行高效率
+done
+wait	#等待循环执行完毕
+echo "results have been pushed into up_ip.txt"
+```
+
+
 
 ## 内存使用率
 
@@ -92,10 +118,10 @@ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 #下载
 case $os_v in
 7)
-	wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+	curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 	;;
 6)
-	wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-6.10.repo --no-check-certificate
+	curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-6.10.repo --no-check-certificate
 	;;
 esac
 #更新缓存

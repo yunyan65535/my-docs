@@ -102,7 +102,7 @@ fi
 ping www.baidu.com &>/etc/null
 if [ $? -ne 0 ];then
 	ping 114.114.114.114 &>/etc/null
-	if [ $? -eq 0 ];then
+	if [ $? -ne 0 ];then
 		echo "please cheak your DNS"
 	else
 		echo "please cheak your network"

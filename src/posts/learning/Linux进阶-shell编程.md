@@ -256,8 +256,6 @@ echo "hello world"
 | -t   | 等待时间     |
 | -n   | 限制输入长度 |
 
-
-
 ### if分支结构
 
 > ：不做处理
@@ -300,6 +298,8 @@ esac
 
 ### for循环结构
 
+> IFS设定分割符，默认空格、Tab、\n分割，不用处理空行
+
 ```shell
 #! /bin/bash
 
@@ -334,17 +334,15 @@ done
 
 ### while循环结构
 
+> <读入，默认\n分割，要处理空行
+
 ```shell
 #! /bin/bash
 
-#打印1到5
-i=1
-
-while [ $i -le 5 ]
+while read line
 do
-	echo $i
-	((i++)) #let i+=1; i=$[$i+1]
-done
+	echo $line
+done <test.txt
 ```
 
 ### until循环结构
@@ -389,9 +387,85 @@ echo $?
 ## 特殊命令
 
 * seq m n：生成m到n正数
+  * -w：等位补齐
 * expr：运算操作
 * basename：显示路径最后文件名
 * dirname：最后目录名
+
+## 重定向
+
+> *打开任意程序，系统自动创建三个文件流：输入(0)、输出(1)、错误(2)被指定到终端*
+
+* \>：输出重定向
+
+  * \>>：追加
+
+* 2>：错误重定向
+
+* &>：同时重定向
+
+* > 程序 <<-EOF     #定向执行，-忽略结束缩进问题
+  >
+  > #内容
+  >
+  > EOF     #结束标志
+  >
+  > #EOF可自定义，只作为标记
+
+## 管道
+
+### 匿名管道
+
+* |：前命令输出为后命令输入
+* |tee 文件：将结果输出到文件，-a追加
+
+> *命令不接受管道参数时使用xargs*
+
+### 命名管道
+
+> 可跨终端使用
+
+* mkfifo 文件：创建管道
+
+## 文件描述符(句柄)
+
+> FD：File Descriptors
+
+* ll /proc/PID/fd：查看进程FD
+
+* exec 文件描述符<> 文件：指定FD打开文件
+* exec 文件描述符<&-：关闭文件，释放FD
+
+> 文件被删除但FD未释放数据仍存在
+
+## 并发控制
+
+> 进程数量太过庞大对其进行限制
+
+```shell
+#! /bin/bash
+
+tmpf=/tmp/$$.fifo
+mkfifo $tmpf
+exec 6<> $tmpf
+rm $tmpf
+for i in `seq 10`
+do
+	echo >&6
+done
+
+for i in {1..999999}
+do
+	read -u 6
+	{
+		...
+		...
+		echo >&6
+	}&
+done
+
+exec 6<&-
+```
 
 ## 文件包含
 

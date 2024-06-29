@@ -24,6 +24,7 @@ export default navbar([
         children: [
           {text: "Linux基础知识", icon: "book-open-reader", link: "Linux基础知识"},
           {text: "Linux进阶-shell编程", icon: "book-open-reader", link: "Linux进阶-shell编程"},
+          {text: "expect编程", icon: "book-open-reader", link: "expect编程"},
         ]
       },
 

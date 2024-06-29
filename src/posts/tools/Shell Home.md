@@ -6,6 +6,8 @@ category:
   - Shell
 tag:
   - play
+star: ture
+sticky: 8
 ---
 
 # Shell Home
@@ -27,7 +29,7 @@ red="\e[1;31m"
 blue="\e[1;34m"
 reset="\e[0m"
 if [ $# -eq 0 ];then
-	echo -e "${red}please enter an parameter after `basename $0` file$reset"
+	echo -e "${red}usage: `basename $0` file$reset"
 	exit
 fi
 if [ ! -f $0 ];then
@@ -63,7 +65,7 @@ do
 		if [ $? -eq 0 ];then
 			echo "$ip is up" |tee -a up_ip.txt
 		fi
-	}&	#后台运行高效率
+	}&	#后台多进程运行
 done
 wait	#等待循环执行完毕
 echo "results have been pushed into up_ip.txt"
@@ -129,3 +131,41 @@ yum clean all
 yum makecache
 ```
 
+## ssh批量密钥分发
+
+```shell
+#! /bim/bash
+
+rpm -q expect &>/etx/null
+if [ $? -ne 0 ];then
+	yum install -y expect
+fi
+
+if [ ! -f ~/.ssh/id_rsa ];then
+	ssh-keygen -P "" -f ~/.ssh/id_rsa
+fi
+
+>push.ip
+pw=123123
+for i in `seq 254`
+do
+	{
+		ip=192.168.0.$i
+		ping -c1 -W1 $ip &>/etc/null
+		if [ $? -eq 0 ];then
+			expect <<-EOF
+			set timeout 10
+			spawn ssh-copy-id $ip
+			expect {
+				"yes/no" {send "yes\r"; exp_continue}
+				"password:" {send "$pw\r"};
+			}
+			expect eof
+			EOF
+		fi
+		echo "$ip is ok" >push.ip
+	}&
+done
+wait
+echo "results have been pushed into push.ip"
+```

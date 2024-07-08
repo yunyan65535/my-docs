@@ -169,3 +169,25 @@ done
 wait
 echo "results have been pushed into push.ip"
 ```
+
+## 统计
+
+```shell
+#! /bin/bash
+
+declare -A count
+
+while read line
+do
+	type=`echo $line |awk '{print $1}'`
+	let count[$type]++
+done <file
+
+for i in ${!count[@]}
+do
+	echo "$i: ${count[$i]}"
+done
+
+#awk '{print $1}' file |sort |uniq -c
+```
+

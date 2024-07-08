@@ -1,5 +1,5 @@
 ---
-icon: book-open-reader
+ icon: book-open-reader
 date: 2024-06-21
 category:
   - Linux
@@ -165,8 +165,17 @@ echo "hello world"
 
 ### 数组
 
-* ()：定义数组
-* ${数组[]}:获取对应下标元素
+* 定义：declare，-a普通，-A关联
+
+#### 普通数组
+
+> （）
+
+#### 关联数组
+
+> （[key]=value）类似字典
+
+
 
 ### 引用
 
@@ -391,6 +400,9 @@ echo $?
 * expr：运算操作
 * basename：显示路径最后文件名
 * dirname：最后目录名
+* watch：持续监视命令结果
+  * -n：间隔
+  * -d：高亮显示变化
 
 ## 重定向
 

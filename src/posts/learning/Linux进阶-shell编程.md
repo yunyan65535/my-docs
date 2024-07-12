@@ -192,14 +192,14 @@ echo "hello world"
 * ${temp/oldstr/newstr}：内容替换引用
 * ${temp//oldstr/newstr}：贪婪匹配
 
-### 赋值
+### 默认赋值
 
-* ${temp-str}：未定义时str将替换
-* ${temp=str}：同-；但还会赋值给temp
-* ${temp+str}：与-相反
-* ${temp?str}：未定义把str输出到标准错误中，并退出脚本
+* res=${a-b}：a未定义时取b
+* res=${a=b}：同-；但还会赋值给a
+* res=${a+b}：与-相反
+* res=${a?b}：a未定义把b输出到标准错误中，并退出脚本
 
-> 加:空值也生效
+> 加 : 空值也生效
 
 ## 运算
 
@@ -374,19 +374,19 @@ done
 ```shell
 #! /bin/bash
 
-demo()
-{
+demo(){
 	read -p "输入两个数:" a b
 	sum=$(($a+$b))
-	echo "the sum is:"
-	return $sum
+	#return $sum
+	echo $sum
 }
-demo
-
-echo $?
-
-#demo自定义
+#demo
+#echo $?
+result=`demo`
+echo $result
 ```
+
+> return最多255
 
 ## 调试
 

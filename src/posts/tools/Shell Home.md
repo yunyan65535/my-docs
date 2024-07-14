@@ -188,6 +188,7 @@ do
 	echo "$i: ${count[$i]}"
 done
 
+
 #awk '{print $1}' file |sort |uniq -c
 ```
 

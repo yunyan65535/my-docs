@@ -1,5 +1,5 @@
 ---
- icon: book-open-reader
+icon: book-open-reader
 date: 2024-06-21
 category:
   - Linux
@@ -175,8 +175,6 @@ echo "hello world"
 
 > （[key]=value）类似字典
 
-
-
 ### 引用
 
 > 基本引用格式：$、(())、${}、``
@@ -322,20 +320,18 @@ done
 ```shell
 #! /bin/bash
 
-#求和
-for i in `seq 1 100`
+#打印1到5
+for ((i=1;i<=5;i++))
 do
-	let sum+=$i
+	echo $i
 done
-
-echo $sum
 ```
 
 ```shell
-#! /bin/bash
+#!/bin/bash
 
-#打印1到5
-for ((i=1;i<=5;i++))
+#遍历所有参数
+for i
 do
 	echo $i
 done
@@ -348,10 +344,22 @@ done
 ```shell
 #! /bin/bash
 
+#读取文件每行
 while read line
 do
 	echo $line
 done <test.txt
+```
+
+```shell
+#!/bin/bash
+
+while [ $# -ne 0 ]
+do
+	let sum+=$1
+	shift #位置变量左移
+done
+echo $sum
 ```
 
 ### until循环结构
@@ -387,6 +395,8 @@ echo $result
 ```
 
 > return最多255
+>
+> 局部变量local
 
 ## 调试
 

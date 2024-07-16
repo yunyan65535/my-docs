@@ -13,7 +13,7 @@ sticky: 9
 # Shell Home
 
 |	Play play	|
-|---------------|
+---
 
 <!-- more -->
 
@@ -78,9 +78,9 @@ echo "results have been pushed into up_ip.txt"
 ```shell
 #! /bin/bash
 
-total=`free |grep 'Mem' |awk '{print $2}'`
-used=`free |grep 'Mem' |awk '{print $3}'`
-rate=$((used*100/total))
+total=`free -m |awk '/Mem/{print $2}'`
+used=`free -m |awk '/Mem/{print $3}'`
+rate=$((used/total))
 echo "当前内存使用:$rate%"
 ```
 
@@ -172,6 +172,8 @@ echo "results have been pushed into push.ip"
 
 ## 统计
 
+### 基本样式
+
 ```shell
 #! /bin/bash
 
@@ -188,7 +190,13 @@ do
 	echo "$i: ${count[$i]}"
 done
 
-
+#awk '{count[$1]++} END{for(i in count){print i,count[i]}}' file
 #awk '{print $1}' file |sort |uniq -c
+```
+
+### 访问日志前10
+
+```shell
+grep '\#16/Jul/2024' log |awk '{req[$1]++}END{for(i in req){print i,req{i}}}' |sort -k2 -nr |head 10
 ```
 

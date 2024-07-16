@@ -8,16 +8,6 @@ export default navbar([
     prefix: "/posts/",
     children: [
       {
-        text: "Solution",
-        icon: "shripm",
-        prefix: "solution/",
-        children: [
-          {text: "Docker拉取国外镜像失败", icon: "shrimp", link: "Docker拉取国外镜像失败"},
-          {text: "Linux配置邮箱", icon: "shrimp", link: "Linux配置邮箱"},
-        ]
-      },
-
-      {
         text: "Learning",
         icon: "book-open-reader",
         prefix: "learning/",
@@ -29,22 +19,14 @@ export default navbar([
       },
 
       {
-        text: "tools",
+        text: "lab",
         icon: "user-secret",
-        prefix: "tools/",
+        prefix: "lab/",
         children: [
           {text: "Shell Home", icon: "bug", link: "Shell Home"},
         ]
       },
-
-      {
-        text: "project",
-        icon: "project",
-        prefix: "project/",
-        children: [
-
-        ]
-      },
+      
     ],
   },
 ]);

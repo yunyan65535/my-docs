@@ -6,7 +6,7 @@ export default hopeTheme({
   hostname: "https://gitee.com/shadow-of-cloud/my-docs",
 
   author: {
-    name: "云烟",
+    name: "云烟驻",
     url: "https://yunyin.pages.dev",
   },
 

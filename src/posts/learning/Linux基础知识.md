@@ -233,13 +233,13 @@ vim file.type
 
 ### 属性
 
-* chgrp 用户 文件：改变文件所属组
+* chgrp 组 文件：改变文件所属组
 * chown 用户[:用户组] 文件：改变文件所属用户和组
 * chsh 用户 -s:改变shell解释器
 
 ### 信息
 
-* /etc/passwad：用户信息
+* /etc/passwd：用户信息
 * /etc/group：用户组信息
 * /etc/shadow：用户密码
 
@@ -259,8 +259,9 @@ vim file.type
 ### 磁盘信息
 
 * df：查看磁盘分区使用情况
-* du：查看指定目录使用情况
+* du：查看指定目录使用情况 
 * free：查看内存使用情况
+* lsblk：挂载情况
 
 ## 系统服务
 

@@ -170,7 +170,92 @@ TypeScript：JavaScript超集，支持静态数据类型，更好的面向对象
 
 #### JSONP
 
-> 对JSON数据前后进行填充使其变为JavaScript代码
+> 跨域执行JavaScript代码不受限制，只支持GET请求
+
+##### 方式
+
+1. 对JSON数据前后进行填充使其变为JavaScript代码
+
+   > 提前定义好回调函数再通过\<script src="JSONP地址">\</script>载入代码
+
+2. 将JSON数据赋值变量
+
+##### 漏洞
+
+1. 任何网站都可载入JSONP获取其中数据，JSONP劫持、只读型CSRF
+
+   > 方案：严格检验Referer确保可信或使用随机Token
+
+2. 可不发送Referer，通过Referrer-Policy头或\<script>标签中加上referrerPolicy="no-referrer"
+
+   > 方案：服务端拒绝不带Referer头的JSONP请求
+
+3. 恶意构造回调函数
+
+   > 方案：响应头设置Content-Type为application/javascript
+
+4. 开发人员在无需跨域接口加上了JSONP需求，在URL添加参数"callback=func"或修改参数"format=json"、"format=xml"为jsonp将造成JSONP劫持
+
+#### 跨域资源共享CORS
+
+##### 类型
+
+* 简单请求：浏览器发送请求带上Origin头，服务端返回指示可访问源，浏览器以此判断请求是否成功
+
+  > HTML表单提交请求，如GET、HEAD、POST
+
+  ![image-20240817131807571](../../.vuepress/public/images/image-20240817131807571.png)
+
+* 复杂请求：发送请求前浏览器OPTIONS方法发送预检请求，服务端允许后发送请求
+
+  > 请求方法可能对服务器产生副作用时
+
+  ![image-20240817140231108](../../.vuepress/public/images/image-20240817140231108.png)
+
+##### 请求头
+
+Origin：当前源
+
+Access-Control-Request-Method：需要的使用方法
+
+Access-Control-Request-Headers：需要用到的HTTP头
+
+##### 响应头
+
+Access-Control-Allow-Method：允许方法
+
+Access-Control-Allow-Headers：允许头
+
+Access-Control-Allow-Origin：允许源，为“ * ”则不允许携带凭证信息，为“ null ”则影响Origin为null
+
+> 漏洞：
+>
+> 1. 为null则任意本地文件、恶意网站Data URL、沙盒化iframe载入的页面都能访问当前源
+> 2. 开发人员调用请求中的Origin构建并允许携带凭证信息
+
+Access-Control-Allow-Credentials：能否携带凭证信息
+
+#### 私有网络访问
+
+> 浏览器根据IP划分网络区域：公共网络、私有网络、本地设备，向私密性更高网络区域发起预检请求
+
+#### WebSocket
+
+##### 特点
+
+1. 全双工通信
+2. 防火墙一般放行
+3. 使用长连接，认证通过后无需携带凭证
+
+##### 漏洞
+
+1. 不受同源策略约束
+
+   > 方案：检验请求头Origin是否在白名单
+
+2. CSRF
+
+   > 为会话随机分配Token，握手检验Token是否正确
 
 ## 多进程架构
 

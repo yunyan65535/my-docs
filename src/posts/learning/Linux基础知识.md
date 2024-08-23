@@ -6,7 +6,6 @@ category:
 tag:
   - learning
 star: true
-sticky: 10
 ---
 
 # Linux基础
@@ -223,7 +222,7 @@ vim file.type
 * passwd 用户：设置密码
   * --stdin：管道输入密码
 * userdel 用户：删除用户，-rf删除用户相关目录
-* su - 用户：切换用户
+* su 用户：切换用户
 
 ### 用户组
 

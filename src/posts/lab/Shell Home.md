@@ -7,7 +7,6 @@ category:
 tag:
   - play
 star: ture
-sticky: 9
 ---
 
 # Shell Home

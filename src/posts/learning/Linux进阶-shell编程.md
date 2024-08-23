@@ -7,7 +7,6 @@ tag:
   - learning
   - shell
 star: true
-sticky: 10
 ---
 
 # Linux进阶-shell编程

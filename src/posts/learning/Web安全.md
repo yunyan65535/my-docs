@@ -1,10 +1,9 @@
 ---
 icon: book-open-reader
 date: 2024-08-16
-star: true
 ---
 
-# Web安全
+# Web安全简介
 
 d2Vi5a6J5YWo
 

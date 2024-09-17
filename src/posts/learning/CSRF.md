@@ -1,7 +1,6 @@
 ---
 icon: book-open-reader
-date: 2024-09-01
-star: true
+date: 2024-08-29
 ---
 
 # CSRF

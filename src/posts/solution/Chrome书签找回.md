@@ -41,4 +41,4 @@ https://www.listary.com/
 
 什么情况，只能导入html文件，于是我将旧书签中内容复制粘贴至新书签中，修改前注意关闭浏览器，对roots中内容进行替换，大功告成
 
-![image-20250512170506677](../../.vuepress/public/images/image-20250512170506677.png)
+![屏幕截图 2025-05-12 170500](../../.vuepress/public/images/屏幕截图 2025-05-12 170500.png)

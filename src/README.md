@@ -10,22 +10,22 @@ projects:
   - icon: book
     name: Solution
     desc: Solve Problems During Exploration
-    link: https://yunyin.pages.dev/posts/solution
+    link: https://blog.yunyan.work/posts/solution
   
   - icon: book
     name: Learning
     desc: Life-long learning
-    link: https://yunyin.pages.dev/posts/learning
+    link: https://blog.yunyan.work/posts/learning
 
   - icon: folder-tree
     name: Project
     desc: Project exercises
-    link: https://yunyin.pages.dev/posts/project
+    link: https://blog.yunyan.work/posts/project
 
   - icon: dragon
     name: Gameplay Lab
     desc: some script and tools
-    link: https://yunyin.pages.dev/posts/lab
+    link: https://blog.yunyan.work/posts/lab
 
 # footer: 自定义你的页脚文字
 ---

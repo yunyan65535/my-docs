@@ -15,7 +15,7 @@ Chrome的书签文件名为Bookmarks，使用文件搜索工具很快就能找�
 https://www.listary.com/
 
 为了找回被删除的书签文件，使用文件恢复工具FinalData
-链接: https://pan.baidu.com/s/1yfs9WZvQ4tGLqYMHQPfXIQ?pwd=i9ej 提取码: i9ej 
+ https://pan.baidu.com/s/1yfs9WZvQ4tGLqYMHQPfXIQ?pwd=i9ej
 
 ## 找回删除文件
 

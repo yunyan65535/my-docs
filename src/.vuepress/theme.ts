@@ -30,7 +30,7 @@ export default hopeTheme({
   // 博客相关
   blog: {
     description: "网络爱好者",
-    intro: "/intro.html",
+    //intro: "/intro.html",
     medias: {
       Gitee: "https://gitee.com/shadow-of-cloud",
       GitHub: "https://github.com/yunyan65535",

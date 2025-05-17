@@ -18,5 +18,7 @@ export default defineClientConfig({
     setupSnowFall({
       count: 20,
     });
+    
+
   },
 });

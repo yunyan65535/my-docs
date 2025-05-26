@@ -91,7 +91,7 @@ star: true
 
    ```
    #配置公网服务器上frp服务的IP与端口
-   serverAddr = "x.x.x.x"
+   serverAddr = "服务器IP或域名"
    serverPort = 7000
    #web dashboard配置
    webServer.addr = "0.0.0.0"
@@ -113,11 +113,11 @@ star: true
 
    ```
    [[proxies]]
-   name = "mc"				#名称
+   name = "mac-vnc"				#名称
    type = "tcp"				#代理类型
    localIP = "127.0.0.1"		#本地IP
-   localPort = 25565			#内网服务监听的端口
-   remotePort = 8500			#需要在公网服务器上监听的端口
+   localPort = 5900			#内网服务监听的端口
+   remotePort = 6000			#需要在公网服务器上监听的端口
    ```
 
 6. 启动服务
@@ -126,6 +126,40 @@ star: true
    ./frpc -c frpc.toml
    ```
 
+   可设置开机自启：
+
+   1. 打开自动操作程序
+
+      ![](../../.vuepress/public/images/image-20250526170710965.png)
+
+   2. 选择应用程序
+
+      <img src="../../.vuepress/public/images/image-20250526170907263.png" alt="image-20250526170907263" style="zoom: 50%;" />
+
+   3. 下滑选择运行shell脚本
+
+      <img src="../../.vuepress/public/images/image-20250526171054248.png" alt="image-20250526171054248" style="zoom: 67%;" />
+
+   4. 在右侧选择解释器并输入需要执行的命令
+
+      <img src="../../.vuepress/public/images/image-20250526171547078.png" alt="image-20250526171547078" style="zoom:50%;" />
+
+   5. 点击左上角文件存储
+
+      <img src="../../.vuepress/public/images/image-20250526171426667.png" alt="image-20250526171426667" style="zoom: 67%;" />
+
+   6. 对程序进行命名并选择存放位置
+
+      <img src="../../.vuepress/public/images/image-20250526171711239.png" alt="image-20250526171711239" style="zoom: 50%;" />
+
+   7. 打开设置->通用->启动项与扩展，点击加号找到frp应用程序进行添加
+
+      <img src="../../.vuepress/public/images/image-20250526172134226.png" alt="image-20250526172134226" style="zoom: 67%;" />
+
 7. 成功上线
 
-   ![](../../.vuepress/public/images/image-20250521163516821.png)
+   <img src="../../.vuepress/public/images/image-20250526172348529.png" alt="image-20250526172348529" style="zoom:33%;" />
+   
+8. 使用realvnc成功连接
+
+   <img src="../../.vuepress/public/images/image-20250526173044165.png" alt="image-20250526173044165" style="zoom:50%;" />
